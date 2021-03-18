@@ -1,0 +1,18 @@
+#include <stdio.h>
+#include <stdlib.h>
+#define ELEMENTNUM 100
+
+int main(){
+  int i=1;
+  char note[100];
+  FILE* file;
+  file = fopen("myText.txt", "rt");
+
+  while(!feof(file)){
+    fscanf(file, "%s", &note[0]);
+    printf("Line %i contains: %s.\n",i, &note[0]);
+    i++;
+  }
+  fclose(file);
+  return 0;
+}
