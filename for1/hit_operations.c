@@ -13,13 +13,16 @@
 
 int main(void){
   int num1=0, num2=0, sign=0, result=0, hit=0;
-  srand = (time(0));
+  srand(time(0)); /* to set the starting point for producing a series of
+ pseudo-random integers. If srand() isn't called the rand() seed is set as
+ if srand(1) were called at program start. In resume the program always is
+ going to return the same set of values if you dont set the seed. */
 
   for(int i=0; i<5; i++){
-    num1 = rand()% 101;
-    num2 = rand()% 101;
-    result = rand()% 1001;
-    sign = rand()% 6;
+    num1 = rand()% 100 + 1;
+    num2 = rand()% 100 + 1;
+    result = rand()% 1000 + 1;
+    sign = rand()% 5 + 1;
 
     switch(sign){
     case 1:
@@ -41,29 +44,23 @@ int main(void){
       if(num1 >= num2){
 	if(result == num1 / num2){
 	  hit++;
-	  printf("%i / %i: %i. \n", num1, num2, result);
-	}
+	}printf("%i / %i: %i. \n", num1, num2, result);
       }else{
 	if(result == num2 / num1){
 	  hit++;
-	  printf("%i / %i: %i. \n", num2, num1, result);
-	}
+	}printf("%i / %i: %i. \n", num2, num1, result);
       }
       break;
     case 5:
       if(num1 >= num2){
 	if(result == num1 % num2){
 	  hit++;
-	  printf("%i %c %i: %i. \n", num1, num2, 37, result);
-	}
+	}printf("%i %c %i: %i. \n", num1, 37, num2, result);
       }else{
 	if(result == num2 % num1){
 	  hit++;
-	  printf("%i %c %i: %i. \n", num2, num1, 37, result);
-	}
+	}printf("%i %c %i: %i. \n", num2, 37, num1, result);
       }
-      break;
-    default:
       break;
     }
   }

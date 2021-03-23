@@ -28,7 +28,7 @@ int main(void){
     i++;
   }
 
-  printf("Lower: %i. \n", n);
-  printf("Greater: %i. \n", p);
-  printf("Equal: %i. \n", z);
+  printf("Negative: %i. \n", n);
+  printf("Prositive: %i. \n", p);
+  printf("Zero: %i. \n", z);
 }

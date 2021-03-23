@@ -25,19 +25,14 @@ int main()
     
     printf("Enter the quantity of * to print --> "); scanf("%i", &n); printf("\n");
     
-    char s[n];
+    const int field_width = (total_width-n)/2;
     
-    for(int i=0; i<n; i++){
-        printf("-->"); scanf("%c", &s[i]); printf("\n");
+    for(int j=0; j<field_width; j++){
+      printf(" ");
     }
-    
-    const int s_width = strlen(s);
-    const int field_width = (total_width - s_width) / 2 + s_width;
-    printf("%i",field_width);
-    
     for(int i=0; i<n; i++){
-        printf("%c", s[i]);
-    } 
+        printf("*");
+    }printf("\n");
     
     return 0;
 }//main
