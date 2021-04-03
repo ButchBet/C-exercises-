@@ -5,7 +5,7 @@
 int main(void){
   char one[20];
   
-  scanf("%s",&one[0]);
+  scanf("%s",&one[]);
   printf("Using printf %s.\n", one);
-  puts(CHAR);
+  puts(one);
 }
