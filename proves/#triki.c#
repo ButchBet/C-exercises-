@@ -51,7 +51,7 @@ int count = 0; // to can know if any entered choose is inside the range
 int c_ch = 0; /* to count the times that a valid value is entered, in total 
 it's 9 enteres values*/
 int saved_verify = 3; // to continue with the reding
-int cp1=0, cp2=0; /*  Verify is there's any 3 match */
+int p1=0, p2=0, cp1=0, cp2=0;
 
 int main(void){
   clrscr();
@@ -105,36 +105,45 @@ case */
 // verify game status
 int verify(){ // We have to evalueate 8 differetn cases
   for(int i = 0; i < 3; i++){ //horizontal cordenates
+    p1 = 0;
+    p2 = 0;/*p1 and p2 work in this case to remove 
+the coun that has from the las nested loop additon  */
     cp1 = 0;
-    cp2 = 0;/* cp1 and co2 work know that in each line we have mached
+    cp2 = 0;/* cp1 and co2 work known that in each line we have mached
 the 3 values */
     for(int j =0; j < 3; j++){
       if(position_mark[i][j] == X){
+  p1 += (i+j);
   cp1++;
       }
       else if(position_mark[i][j] == O){
+  p2 += (i+j);
   cp2++;
-      }else{continue;}
+      }else{}
     }
     if(cp1 == 3 || cp2 == 3){
       i = 3; // to force stoping the loop
-    }else{continue;}
+    }else{}
   }
   
-  if(cp1 == 3){
+  if(p1%3 == 0 && p1 !=0){
     saved_verify = 0;
   }
-  else if(cp2 == 3){
+  else if(p2%3 == 0 && p2 !=0){
     saved_verify = 1;
   }else{
     for(int k = 0; k < 3; k++){ // vertical cases
+      p1 = 0;
+      p2 = 0; 
       cp1 = 0;
       cp2 = 0;
       for(int g = 0; g < 3; g++){  
         if(position_mark[g][k] == X){   
+          p1 += (g+k);
           cp1++;
   }
         else if(position_mark[g][k] == O){
+    p2 += (g+k);
     cp2++;
         }else{continue;}
       }
@@ -142,10 +151,10 @@ the 3 values */
       k = 3;
       }else{continue;}
     }
-    if(cp1 == 3){
+    if(p1%3 == 0 && p1 !=0){
       saved_verify = 0;
     }
-    else if(cp2 == 3){
+    else if(p2%3 == 0 && p2 !=0){
       saved_verify = 1;
     }else{ // diagonal cases
       if(position_mark[0][0] == X && position_mark[1][1] == X && position_mark[2][2] == X || position_mark[0][2] == X && position_mark[1][1] == X && position_mark[2][0] == X){
@@ -181,7 +190,7 @@ void reading_position(int inx){
 or O in each case */
   if(count == 0){
     reading_position(inx);
-  }else{} // allways use this else thus don't have any code line inside
+  }else{continue;} // allways use this else thus don't have any code line inside
 }
 
 
