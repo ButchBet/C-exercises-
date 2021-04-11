@@ -3,27 +3,36 @@
 
 int main()
 {
-  int n = 5;
-  float array1[5] = {1,3,7,8,5}, array2[5] = {2,8,7,9,32};
-  int *p_hello_world = (int *)malloc((n*2)*sizeof(int)); // make sure that has the necessary memory space 
- 
-  if(p_hello_world == NULL){
-      printf("Unsuccessful allocation.\n");
-      exit(0);
-  }else{
-      // calculate and show the addition
-      printf("*p_hello_world = {");
-      for(int i = 0; i < n; i++){ 
-          *p_hello_world = array1[i] + array2[i];
-          if(i == n-1){
-              printf("%i}.\n", *p_hello_world);
-          }else{
-              printf("%i, ", *p_hello_world);
-          }
-          p_hello_world++;
-      }
-  }
-  return 0;
+    int n=0, counter=0;
+    printf("Enter the nubers of elements for this array : "); scanf("%i", &n);
+
+    int *p_array = (int *)malloc(n*sizeof(int));
+    int *p_new_array = (int *)malloc(n*sizeof(int));
+    
+    if(p_array == NULL || p_new_array == NULL){
+        printf("Unsuccessfull memory allocation.\n");
+        exit(0);
+    }else{
+        // data reading and adding the pair digits to the new array or pair array 
+        for(int i=0; i < n; i++){
+            printf("Enter : "); scanf("%i", p_array);
+            p_array++;
+        }
+        p_array -= n; // go back to the first position
+
+        // indentify prime elements
+
+        //showing the array with pair numbers
+        printf("*p_new_array[%d] = {", counter);
+        for(int i=0; i < counter; i++){
+            if(i == counter-1){
+                printf("%i}.\n", *p_new_array);
+            }else{
+                printf("%i, ", *p_new_array);
+            }p_new_array++;
+        }
+    }
+    return 0;
 }
 
 
