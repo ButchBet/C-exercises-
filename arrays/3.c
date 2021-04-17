@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-int main(){
+void main(void){
     char entered[7]; /* could be more efficient using pointers */
     char option = 'd';
 
@@ -43,6 +43,12 @@ int main(){
         int p = 0;
         printf("Enter the p position: "); 
         scanf("%d", &p);
+
+        entered[p] = (char)0;
+        int cont = 7;
+        for(int i = p+1; i >= cont+1; i++){
+            entered[i] = ' ';
+        }
+        puts(entered);
     }
-    return 0;
 }
