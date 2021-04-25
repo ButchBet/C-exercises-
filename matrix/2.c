@@ -33,25 +33,27 @@ int main(){
     for(int i = 0; i < 8; i++){
         for(int j = 0; j < 7; j++){
             if(array[i][j] == 1){
-                if(array[i--][j] != 1 && array[i][j--] != 1 && array[i++][j] != 1 && array[i][j++] != 1){ // 4 cases
-                    perimeter += 4;
+                /* Check the cultivated perimeter */
+                if(array[i-1][j] != 1){
+                    perimeter++;
                 }
-                else if(array[i--][j] != 1 && array[i][j--] != 1 && array[i++][j] != 1 || array[i--][j] != 1 && array[i][j--] != 1 && array[i][j++] != 1 || array[i][j--] != 1 && array[i++][j] != 1 && array[i][j++] != 1 || array[i--][j] != 1 && array[i++][j] != 1 && array[i][j++] != 1){ // three cases
-                    perimeter += 3;
+                if(array[i][j-1] != 1){
+                    perimeter++;
                 }
-                else if(array[i--][j] != 1 && array[i][j--] != 1 || array[i--][j] != 1 && array[i][j++] || array[i--][j] != 1 && array[i++][j] || array[i][j--] != 1 && array[i++][j] || array[i][j--] != 1 && array[i][j++] || array[i++][j] != 1 && array[i][j++]){ // two cases
-                    perimeter += 2;
+                if(array[i+1][j] != 1){
+                    perimeter++;
                 }
-                else if(array[i--][j] != 1 || array[i][j--] != 1 || array[i++][j] != 1 || array[i][j++] != 1){// one case
-                    perimeter += 1;
+                if(array[i][j+1]){
+                    perimeter++;
                 }
             }
         }
     }
 
+
     /* Show each result */
     printf("The cultivated area : %dm^2.\n", cultivated);
     printf("Not-cultivated area : %dm^2.\n", not_cultivated);
-    printf("The perimeter of the cultivated area : %.2fmt", perimeter*3.7);
+    printf("The perimeter of the cultivated area : %.2fmt", perimeter*3.17);
     return 0;
 }
