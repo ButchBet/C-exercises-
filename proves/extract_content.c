@@ -6,12 +6,11 @@ int main(){
   int i=1, j=0;
   char note[100];
   FILE* file;
-  file = fopen("myText.txt", "txt");
+  file = fopen("myText.txt", "r");
 
   while(!feof(file)){
-    fgets(file, "%s", &note[0]);
-    printf("Line %i contains: %s.\n ", i, note);
-    i++;
+    fgets(note, 100, file);
+    fputs(note, stdout);
   }
   fclose(file);
   return 0;
