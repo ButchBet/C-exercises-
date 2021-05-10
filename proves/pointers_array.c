@@ -81,4 +81,3 @@ void print_strings(char *p[], int n){
 		printf("%s\n", p[count]);
 	}
 }
-  
