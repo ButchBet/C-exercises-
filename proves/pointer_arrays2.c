@@ -18,7 +18,7 @@ int main()
 
     for(int i = 0; i < TABLES; i++){
         for(int j = 0; j < ROWS; j++){
-            for(int k = 0; k < 4; k++){
+            for(int k = 0; k < COLS; k++){
                 array[i][j][k] = rand()%(99)+1;
             }
         }

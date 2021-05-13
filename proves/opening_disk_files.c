@@ -57,6 +57,7 @@ void output(int n, char name_file[], char mode[]){
     /* 2.4 */
     if(option == 1){
         main();
+        return;
     }
 }
 /* 1 : creating a *file structure

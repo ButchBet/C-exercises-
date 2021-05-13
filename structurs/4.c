@@ -15,7 +15,7 @@ void main(void){
             for(int k = 0; k < 60; k++){
             printf("The time is: %d:%d:%d.",i,j,k);
             system("cls");
-            for(int m = 0; m < 200; m++){
+            for(int m = 0; m < 400; m++){
             }
             }
         }

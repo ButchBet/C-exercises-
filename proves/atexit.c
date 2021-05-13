@@ -26,7 +26,7 @@ int main(void){
 }
 
 void f1(void){
-	printf("This is the first atexit call.\n");
+	printf("This is the first atexit() call.\n");
 }
 
 void f2(void){
